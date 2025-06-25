@@ -185,10 +185,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // Use popUpContextMenu instead of setting statusItem.menu
     // This prevents blocking the main thread and allows timer updates to continue
-	  statusItem.menu = menu
-	  statusItem.button?.performClick(nil)
-	  // Set menu back to nil so the button's action works for the next click.
-	  statusItem.menu = nil
+    statusItem.menu = menu
+    statusItem.button?.performClick(nil)
+    // Set menu back to nil so the button's action works for the next click.
+    statusItem.menu = nil
   }
 
   @objc private func primaryAction() {
@@ -206,7 +206,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   @objc private func rewindOrResetTapped() {
     viewModel.rewindOrResetTapped()
   }
-
 
   @objc private func restartAll() {
     viewModel.restartAll()
@@ -243,6 +242,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       • The timer follows the Pomodoro technique by default
       • Customize durations and settings via the right-click menu
       • Enable notifications in Settings to get alerts when sessions complete
+
+      Overflow Mode:
+      • Overflow mode activates when you continue working past your planned session time
+      • When work sessions exceed their planned duration, left-click starts your break
+      • Timer shows elapsed time instead of remaining time
 
       You can find all timer controls and settings by right-clicking the menu bar icon.
       """
