@@ -185,9 +185,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // Use popUpContextMenu instead of setting statusItem.menu
     // This prevents blocking the main thread and allows timer updates to continue
-    menu.popUp(
-      positioning: nil, at: NSPoint(x: 0, y: statusItem.button?.frame.height ?? 22),
-      in: statusItem.button)
+	  statusItem.menu = menu
+	  statusItem.button?.performClick(nil)
+	  // Set menu back to nil so the button's action works for the next click.
+	  statusItem.menu = nil
   }
 
   @objc private func primaryAction() {
