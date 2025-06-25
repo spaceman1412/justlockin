@@ -33,12 +33,10 @@ class JustLockInViewModel: ObservableObject {
   private var remainingTime: TimeInterval
   var completedWorkSessions: Int = 0
 
-  // MARK: - Session History for Rewind Feature
   private var sessionHistory: [SessionType] = []
 
   var onStatusUpdate: (() -> Void)?
 
-  // MARK: - Computed Properties for Rewind Feature
   var canRewindToPreviousSession: Bool {
     return !sessionHistory.isEmpty
   }
@@ -60,7 +58,6 @@ class JustLockInViewModel: ObservableObject {
     checkInitialNotificationStatus()
   }
 
-  // MARK: - Formatters
   let durationFormatter: NumberFormatter = {
     let formatter = NumberFormatter()
     formatter.numberStyle = .decimal
@@ -77,7 +74,6 @@ class JustLockInViewModel: ObservableObject {
     return formatter
   }()
 
-  // MARK: - User Interface Helpers
 
   /// Returns a user-friendly description of what the primary action (left-click) will do
   var primaryActionDescription: String {
@@ -103,7 +99,6 @@ class JustLockInViewModel: ObservableObject {
     }
   }
 
-  // MARK: - Timer Control
   func startTapped() {
     if timerState == .running {
       timerState = .paused
@@ -145,10 +140,8 @@ class JustLockInViewModel: ObservableObject {
     }
   }
 
-  // MARK: - Rewind Session Feature
   func rewindOrResetTapped() {
     if timerState == .running || timerState == .paused {
-      // Stage 1: Reset current session
       timer?.invalidate()
       timerState = .idle
       progress = 0.0
@@ -156,7 +149,6 @@ class JustLockInViewModel: ObservableObject {
       updateFormattedTime()
       onStatusUpdate?()
     } else if timerState == .idle {
-      // Stage 2: Rewind to previous session
       rewindToPreviousSession()
     }
   }
@@ -167,13 +159,10 @@ class JustLockInViewModel: ObservableObject {
       return  // No session to rewind to
     }
 
-    // Perform state synchronization - if we're rewinding from a break session
-    // back to a work session, we need to decrement the completed sessions count
     if currentSessionType == .shortBreak || currentSessionType == .longBreak {
       completedWorkSessions = max(0, completedWorkSessions - 1)
     }
 
-    // Update to the previous session
     currentSessionType = previousSession
 
     // Reset the timer with the duration for the previous session
@@ -184,7 +173,6 @@ class JustLockInViewModel: ObservableObject {
     onStatusUpdate?()
   }
 
-  // Keep the old resetTapped for backwards compatibility (if needed elsewhere)
   func resetTapped() {
     timer?.invalidate()
     timerState = .idle
@@ -223,7 +211,6 @@ class JustLockInViewModel: ObservableObject {
     }
   }
 
-  // MARK: - Notification Logic
   func notificationSettingChanged(isEnabled: Bool) {
     if isEnabled {
       // User wants to enable notifications - request permission
@@ -259,7 +246,6 @@ class JustLockInViewModel: ObservableObject {
     }
   }
 
-  // MARK: - Private Helpers
   private func startTimer() {
     timer = Timer.scheduledTimer(
       timeInterval: 1.0, target: self, selector: #selector(timerFired), userInfo: nil,
@@ -298,7 +284,7 @@ class JustLockInViewModel: ObservableObject {
           // Add current session to history before transitioning to overflow
           sessionHistory.append(currentSessionType)
 
-          // Auto-transition to overflow mode - ALWAYS auto-start overflow regardless of enableAutoStart
+          // Auto-transition to overflow mode
           currentSessionType = .overflow
           remainingTime = 0
           timerState = .running
