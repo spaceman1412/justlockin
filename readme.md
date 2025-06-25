@@ -20,7 +20,7 @@
 ## Features
 
 - **Exclusive Menu Bar Presence**: Lives only in your menu bar to keep your Dock and screen clutter-free.
-- **Simple Control**: A single click is all you need to start, pause, or end a session and a right click to open menu.
+- **Simple Control**: A single left click is all you need to start, pause, or end a session and a right click to open menu.
 - **Overflow Mode**: Continue your deep work with an automatic count-up timer when your focus session ends.
 - **Customizable Workflow**: Adjust the duration for focus, short, and long breaks, with ability to control transitions between sessions (backward and forward).
 - **Smart Notifications**: Receive timely alerts with sound to signal session changes, with full control over permissions.
