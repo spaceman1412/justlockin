@@ -1,0 +1,556 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		5CBECD772E016BDD003C66B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CBECD5D2E016BDB003C66B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CBECD642E016BDB003C66B1;
+			remoteInfo = JustLockin;
+		};
+		5CBECD812E016BDD003C66B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CBECD5D2E016BDB003C66B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CBECD642E016BDB003C66B1;
+			remoteInfo = JustLockin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5CBECD652E016BDB003C66B1 /* JustLockin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustLockin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CBECD762E016BDD003C66B1 /* JustLockinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustLockinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CBECD802E016BDD003C66B1 /* JustLockinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustLockinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5CBECD672E016BDB003C66B1 /* JustLockin */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = JustLockin;
+			sourceTree = "<group>";
+		};
+		5CBECD792E016BDD003C66B1 /* JustLockinTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = JustLockinTests;
+			sourceTree = "<group>";
+		};
+		5CBECD832E016BDD003C66B1 /* JustLockinUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = JustLockinUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5CBECD622E016BDB003C66B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CBECD732E016BDD003C66B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CBECD7D2E016BDD003C66B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5CBECD5C2E016BDB003C66B1 = {
+			isa = PBXGroup;
+			children = (
+				5CBECD672E016BDB003C66B1 /* JustLockin */,
+				5CBECD792E016BDD003C66B1 /* JustLockinTests */,
+				5CBECD832E016BDD003C66B1 /* JustLockinUITests */,
+				5CBECD662E016BDB003C66B1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5CBECD662E016BDB003C66B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CBECD652E016BDB003C66B1 /* JustLockin.app */,
+				5CBECD762E016BDD003C66B1 /* JustLockinTests.xctest */,
+				5CBECD802E016BDD003C66B1 /* JustLockinUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5CBECD642E016BDB003C66B1 /* JustLockin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CBECD8A2E016BDD003C66B1 /* Build configuration list for PBXNativeTarget "JustLockin" */;
+			buildPhases = (
+				5CBECD612E016BDB003C66B1 /* Sources */,
+				5CBECD622E016BDB003C66B1 /* Frameworks */,
+				5CBECD632E016BDB003C66B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5CBECD672E016BDB003C66B1 /* JustLockin */,
+			);
+			name = JustLockin;
+			packageProductDependencies = (
+			);
+			productName = JustLockin;
+			productReference = 5CBECD652E016BDB003C66B1 /* JustLockin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5CBECD752E016BDD003C66B1 /* JustLockinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CBECD8D2E016BDD003C66B1 /* Build configuration list for PBXNativeTarget "JustLockinTests" */;
+			buildPhases = (
+				5CBECD722E016BDD003C66B1 /* Sources */,
+				5CBECD732E016BDD003C66B1 /* Frameworks */,
+				5CBECD742E016BDD003C66B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CBECD782E016BDD003C66B1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5CBECD792E016BDD003C66B1 /* JustLockinTests */,
+			);
+			name = JustLockinTests;
+			packageProductDependencies = (
+			);
+			productName = JustLockinTests;
+			productReference = 5CBECD762E016BDD003C66B1 /* JustLockinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5CBECD7F2E016BDD003C66B1 /* JustLockinUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CBECD902E016BDD003C66B1 /* Build configuration list for PBXNativeTarget "JustLockinUITests" */;
+			buildPhases = (
+				5CBECD7C2E016BDD003C66B1 /* Sources */,
+				5CBECD7D2E016BDD003C66B1 /* Frameworks */,
+				5CBECD7E2E016BDD003C66B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CBECD822E016BDD003C66B1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5CBECD832E016BDD003C66B1 /* JustLockinUITests */,
+			);
+			name = JustLockinUITests;
+			packageProductDependencies = (
+			);
+			productName = JustLockinUITests;
+			productReference = 5CBECD802E016BDD003C66B1 /* JustLockinUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5CBECD5D2E016BDB003C66B1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					5CBECD642E016BDB003C66B1 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					5CBECD752E016BDD003C66B1 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 5CBECD642E016BDB003C66B1;
+					};
+					5CBECD7F2E016BDD003C66B1 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 5CBECD642E016BDB003C66B1;
+					};
+				};
+			};
+			buildConfigurationList = 5CBECD602E016BDB003C66B1 /* Build configuration list for PBXProject "JustLockin" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5CBECD5C2E016BDB003C66B1;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5CBECD662E016BDB003C66B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CBECD642E016BDB003C66B1 /* JustLockin */,
+				5CBECD752E016BDD003C66B1 /* JustLockinTests */,
+				5CBECD7F2E016BDD003C66B1 /* JustLockinUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5CBECD632E016BDB003C66B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CBECD742E016BDD003C66B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CBECD7E2E016BDD003C66B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CBECD612E016BDB003C66B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CBECD722E016BDD003C66B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CBECD7C2E016BDD003C66B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5CBECD782E016BDD003C66B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CBECD642E016BDB003C66B1 /* JustLockin */;
+			targetProxy = 5CBECD772E016BDD003C66B1 /* PBXContainerItemProxy */;
+		};
+		5CBECD822E016BDD003C66B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CBECD642E016BDB003C66B1 /* JustLockin */;
+			targetProxy = 5CBECD812E016BDD003C66B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5CBECD882E016BDD003C66B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5CBECD892E016BDD003C66B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		5CBECD8B2E016BDD003C66B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JustLockin/JustLockin.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"JustLockin/Preview Content\"";
+				DEVELOPMENT_TEAM = W7X4BZCTLV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = JustLockin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.catboss.JustLockin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5CBECD8C2E016BDD003C66B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JustLockin/JustLockin.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"JustLockin/Preview Content\"";
+				DEVELOPMENT_TEAM = W7X4BZCTLV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = JustLockin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.catboss.JustLockin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5CBECD8E2E016BDD003C66B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W7X4BZCTLV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.catboss.JustLockinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustLockin.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JustLockin";
+			};
+			name = Debug;
+		};
+		5CBECD8F2E016BDD003C66B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W7X4BZCTLV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.catboss.JustLockinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustLockin.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JustLockin";
+			};
+			name = Release;
+		};
+		5CBECD912E016BDD003C66B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W7X4BZCTLV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.catboss.JustLockinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = JustLockin;
+			};
+			name = Debug;
+		};
+		5CBECD922E016BDD003C66B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W7X4BZCTLV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.catboss.JustLockinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = JustLockin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CBECD602E016BDB003C66B1 /* Build configuration list for PBXProject "JustLockin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CBECD882E016BDD003C66B1 /* Debug */,
+				5CBECD892E016BDD003C66B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CBECD8A2E016BDD003C66B1 /* Build configuration list for PBXNativeTarget "JustLockin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CBECD8B2E016BDD003C66B1 /* Debug */,
+				5CBECD8C2E016BDD003C66B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CBECD8D2E016BDD003C66B1 /* Build configuration list for PBXNativeTarget "JustLockinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CBECD8E2E016BDD003C66B1 /* Debug */,
+				5CBECD8F2E016BDD003C66B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CBECD902E016BDD003C66B1 /* Build configuration list for PBXNativeTarget "JustLockinUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CBECD912E016BDD003C66B1 /* Debug */,
+				5CBECD922E016BDD003C66B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5CBECD5D2E016BDB003C66B1 /* Project object */;
+}
