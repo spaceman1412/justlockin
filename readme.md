@@ -74,3 +74,7 @@ xattr -d com.apple.quarantine /Applications/JustLockin.app
 ## Contributing
 
 Feel free to share, open issues and contribute to this project! :heart:
+
+## License
+
+JustLockin is open source software licensed under the MIT License. See [LICENSE](LICENSE) for details.
