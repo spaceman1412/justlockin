@@ -275,7 +275,7 @@ class JustLockInViewModel: ObservableObject {
           notificationService.sendNotification(
             title: "Time for a break!",
             body: "Your \(Int(duration / 60))-minute focus session is complete.",
-            soundFileName: "break-noti.wav",
+            soundFileName: "work-noti.wav",
             enableSound: settings.enableSoundNotifications)
         }
 
