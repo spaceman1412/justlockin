@@ -35,7 +35,7 @@ brew install --cask spaceman1412/tap/justlockin
 
 You can also install manually:
 
-1. Download the latest available zip from [releases page](https://downloadlink)
+1. Download the latest available zip from [releases page](https://github.com/spaceman1412/justlockin/releases)
 2. Unpack zip
 3. Put unpacked `JustLockin.app` into `/Applications` folder
 
