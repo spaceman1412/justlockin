@@ -1,3 +1,4 @@
+import Cocoa
 import Combine
 import Foundation
 import UserNotifications
@@ -35,6 +36,12 @@ class JustLockInViewModel: ObservableObject {
 
   private var sessionHistory: [SessionType] = []
 
+  // Sleep/Wake handling
+  private var sleepObserver: NSObjectProtocol?
+  private var wakeObserver: NSObjectProtocol?
+  private var lastTimerFireTime: Date?
+  private var backgroundActivity: NSObjectProtocol?
+
   var onStatusUpdate: (() -> Void)?
 
   var canRewindToPreviousSession: Bool {
@@ -56,6 +63,12 @@ class JustLockInViewModel: ObservableObject {
     self.formattedTimeString = "25:00"  // Initial value
     updateFormattedTime()
     checkInitialNotificationStatus()
+    setupSleepWakeObservers()
+  }
+
+  deinit {
+    removeSleepWakeObservers()
+    endBackgroundActivity()
   }
 
   let durationFormatter: NumberFormatter = {
@@ -73,7 +86,6 @@ class JustLockInViewModel: ObservableObject {
     formatter.maximum = 12
     return formatter
   }()
-
 
   /// Returns a user-friendly description of what the primary action (left-click) will do
   var primaryActionDescription: String {
@@ -99,12 +111,100 @@ class JustLockInViewModel: ObservableObject {
     }
   }
 
+  // MARK: - Sleep/Wake Handling
+
+  private func setupSleepWakeObservers() {
+    let notificationCenter = NSWorkspace.shared.notificationCenter
+
+    sleepObserver = notificationCenter.addObserver(
+      forName: NSWorkspace.willSleepNotification,
+      object: nil,
+      queue: .main
+    ) { [weak self] _ in
+      self?.handleWillSleep()
+    }
+
+    wakeObserver = notificationCenter.addObserver(
+      forName: NSWorkspace.didWakeNotification,
+      object: nil,
+      queue: .main
+    ) { [weak self] _ in
+      self?.handleDidWake()
+    }
+  }
+
+  private func removeSleepWakeObservers() {
+    if let sleepObserver = sleepObserver {
+      NSWorkspace.shared.notificationCenter.removeObserver(sleepObserver)
+      self.sleepObserver = nil
+    }
+
+    if let wakeObserver = wakeObserver {
+      NSWorkspace.shared.notificationCenter.removeObserver(wakeObserver)
+      self.wakeObserver = nil
+    }
+  }
+
+  private func handleWillSleep() {
+    // Store the current time when system goes to sleep
+    if timerState == .running {
+      lastTimerFireTime = Date()
+    }
+  }
+
+  private func handleDidWake() {
+    // Adjust timer based on elapsed sleep time
+    if timerState == .running, let sleepTime = lastTimerFireTime {
+      let sleepDuration = Date().timeIntervalSince(sleepTime)
+
+      if currentSessionType == .overflow {
+        // For overflow mode, add the elapsed time
+        remainingTime += sleepDuration
+      } else {
+        // For normal sessions, subtract the elapsed time
+        remainingTime = max(0, remainingTime - sleepDuration)
+
+        // Check if session should have completed during sleep
+        if remainingTime <= 0 {
+          handleSessionCompletion()
+          return
+        }
+      }
+
+      updateProgress()
+      updateFormattedTime()
+      onStatusUpdate?()
+    }
+
+    lastTimerFireTime = nil
+  }
+
+  // MARK: - Background Activity Management
+
+  private func beginBackgroundActivity() {
+    endBackgroundActivity()  // End any existing activity first
+
+    backgroundActivity = ProcessInfo.processInfo.beginActivity(
+      options: [.userInitiated, .idleSystemSleepDisabled],
+      reason: "Focus timer session is running"
+    )
+  }
+
+  private func endBackgroundActivity() {
+    if let activity = backgroundActivity {
+      ProcessInfo.processInfo.endActivity(activity)
+      backgroundActivity = nil
+    }
+  }
+
   func startTapped() {
     if timerState == .running {
       timerState = .paused
       timer?.invalidate()
+      endBackgroundActivity()
     } else {
       timerState = .running
+      beginBackgroundActivity()
       startTimer()
     }
     onStatusUpdate?()
@@ -112,6 +212,8 @@ class JustLockInViewModel: ObservableObject {
 
   func skipTapped() {
     timer?.invalidate()
+    endBackgroundActivity()
+
     // Manually transition from overflow to a break
     if currentSessionType == .overflow {
       // Add current session to history before transitioning
@@ -125,6 +227,7 @@ class JustLockInViewModel: ObservableObject {
       // Respect auto-start setting when transitioning from overflow to break
       if settings.enableAutoStart {
         timerState = .running
+        beginBackgroundActivity()
         updateProgress()
         updateFormattedTime()
         onStatusUpdate?()
@@ -143,6 +246,7 @@ class JustLockInViewModel: ObservableObject {
   func rewindOrResetTapped() {
     if timerState == .running || timerState == .paused {
       timer?.invalidate()
+      endBackgroundActivity()
       timerState = .idle
       progress = 0.0
       remainingTime = totalDurationForSession(type: currentSessionType)
@@ -175,6 +279,7 @@ class JustLockInViewModel: ObservableObject {
 
   func resetTapped() {
     timer?.invalidate()
+    endBackgroundActivity()
     timerState = .idle
     progress = 0.0
     currentSessionType = .work
@@ -185,6 +290,7 @@ class JustLockInViewModel: ObservableObject {
 
   func restartAll() {
     timer?.invalidate()
+    endBackgroundActivity()
     timerState = .idle
     progress = 0.0
     currentSessionType = .work
@@ -247,12 +353,15 @@ class JustLockInViewModel: ObservableObject {
   }
 
   private func startTimer() {
+    lastTimerFireTime = Date()
     timer = Timer.scheduledTimer(
       timeInterval: 1.0, target: self, selector: #selector(timerFired), userInfo: nil,
       repeats: true)
   }
 
   @objc private func timerFired() {
+    lastTimerFireTime = Date()
+
     if currentSessionType == .overflow {
       remainingTime += 1
       updateFormattedTime()
@@ -265,51 +374,57 @@ class JustLockInViewModel: ObservableObject {
       updateProgress()
       updateFormattedTime()
     } else {
-      timer?.invalidate()
-      timerState = .idle
+      handleSessionCompletion()
+    }
+  }
 
-      switch currentSessionType {
-      case .work:
-        if settings.enableNotifications {
-          let duration = settings.workSessionDuration
-          notificationService.sendNotification(
-            title: "Time for a break!",
-            body: "Your \(Int(duration / 60))-minute focus session is complete.",
-            soundFileName: "work-noti.wav",
-            enableSound: settings.enableSoundNotifications)
-        }
+  private func handleSessionCompletion() {
+    timer?.invalidate()
+    endBackgroundActivity()
+    timerState = .idle
 
-        // Check if overflow mode is enabled
-        if settings.enableOverflowMode {
-          // Add current session to history before transitioning to overflow
-          sessionHistory.append(currentSessionType)
-
-          // Auto-transition to overflow mode
-          currentSessionType = .overflow
-          remainingTime = 0
-          timerState = .running
-          updateProgress()
-          updateFormattedTime()
-          startTimer()  // Always start overflow timer immediately
-          onStatusUpdate?()
-          return
-        } else {
-          startNextSession()
-        }
-
-      case .shortBreak, .longBreak:
-        if settings.enableNotifications {
-          let duration = totalDurationForSession(type: currentSessionType)
-          notificationService.sendNotification(
-            title: "Back to focus!",
-            body: "Your \(Int(duration / 60))-minute break is over.",
-            soundFileName: "work-noti.wav",
-            enableSound: settings.enableSoundNotifications)
-        }
-        startNextSession()
-      case .overflow:
-        break
+    switch currentSessionType {
+    case .work:
+      if settings.enableNotifications {
+        let duration = settings.workSessionDuration
+        notificationService.sendNotification(
+          title: "Time for a break!",
+          body: "Your \(Int(duration / 60))-minute focus session is complete.",
+          soundFileName: "work-noti.wav",
+          enableSound: settings.enableSoundNotifications)
       }
+
+      // Check if overflow mode is enabled
+      if settings.enableOverflowMode {
+        // Add current session to history before transitioning to overflow
+        sessionHistory.append(currentSessionType)
+
+        // Auto-transition to overflow mode
+        currentSessionType = .overflow
+        remainingTime = 0
+        timerState = .running
+        beginBackgroundActivity()
+        updateProgress()
+        updateFormattedTime()
+        startTimer()  // Always start overflow timer immediately
+        onStatusUpdate?()
+        return
+      } else {
+        startNextSession()
+      }
+
+    case .shortBreak, .longBreak:
+      if settings.enableNotifications {
+        let duration = totalDurationForSession(type: currentSessionType)
+        notificationService.sendNotification(
+          title: "Back to focus!",
+          body: "Your \(Int(duration / 60))-minute break is over.",
+          soundFileName: "work-noti.wav",
+          enableSound: settings.enableSoundNotifications)
+      }
+      startNextSession()
+    case .overflow:
+      break
     }
   }
 
@@ -335,6 +450,7 @@ class JustLockInViewModel: ObservableObject {
 
     if settings.enableAutoStart {
       timerState = .running
+      beginBackgroundActivity()
       updateProgress()
       updateFormattedTime()
       onStatusUpdate?()

@@ -21,6 +21,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // Ensure dock icon remains hidden
     NSApp.setActivationPolicy(.accessory)
 
+    // Prevent automatic termination and App Nap
+    NSApp.disableRelaunchOnLogin()
+
+    // Prevent the system from putting the app to sleep
+    if #available(macOS 10.9, *) {
+      ProcessInfo.processInfo.disableAutomaticTermination("Timer is running")
+    }
+
     if let icon = NSImage(named: "AppIcon") {
       // Set it as the application's icon.
       // This will be used by the Dock and other system services like Mission Control.
@@ -273,5 +281,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // Ensure dock icon remains hidden after showing welcome alert
     NSApp.setActivationPolicy(.accessory)
+  }
+
+  func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+    // Allow graceful shutdown but don't prevent termination when user explicitly quits
+    return .terminateNow
   }
 }
